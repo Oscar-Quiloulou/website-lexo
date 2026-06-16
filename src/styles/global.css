@@ -1,5 +1,5 @@
 /* ============================
-   GLOBAL RESET
+   RESET + BASE
 ============================ */
 
 * {
@@ -9,26 +9,62 @@
 }
 
 html, body {
-  font-family: system-ui, sans-serif;
-  background: #f1f5f9;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #f3f6fa;
   color: #0f172a;
   min-height: 100vh;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 a {
   color: #2563eb;
   text-decoration: none;
+  transition: 0.2s ease;
 }
 
 a:hover {
   text-decoration: underline;
 }
 
+/* ============================
+   PAGE WRAPPER
+============================ */
+
 main.page {
   width: 100%;
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
   padding: 40px 20px;
+}
+
+/* ============================
+   TITRES
+============================ */
+
+h1 {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #0f172a;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #1e293b;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #334155;
 }
 
 /* ============================
@@ -38,7 +74,7 @@ main.page {
 .navbar {
   width: 100%;
   background: white;
-  padding: 14px 20px;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -50,26 +86,39 @@ main.page {
 
 .nav-logo {
   font-size: 22px;
-  font-weight: 700;
+  font-weight: 800;
   color: #0f172a;
 }
 
 .nav-links {
   display: flex;
-  gap: 20px;
+  gap: 24px;
 }
 
 .nav-links a {
   font-weight: 600;
-  color: #334155;
+  color: #475569;
+  padding: 6px 0;
+  position: relative;
 }
 
 .nav-links a:hover {
   color: #1e293b;
 }
 
-.nav-user a {
-  font-weight: 600;
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #2563eb;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }
 
 /* ============================
@@ -78,11 +127,12 @@ main.page {
 
 .footer {
   margin-top: 60px;
-  padding: 20px;
+  padding: 30px;
   text-align: center;
   background: white;
   border-top: 1px solid #e2e8f0;
   color: #475569;
+  font-size: 15px;
 }
 
 .footer a {
@@ -91,28 +141,46 @@ main.page {
 }
 
 /* ============================
-   FORMS
+   CARDS GÉNÉRIQUES
 ============================ */
 
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.card {
   background: white;
-  padding: 30px;
+  padding: 24px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  transition: 0.2s ease;
 }
 
-.auth-form input {
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   GRIDS
+============================ */
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+/* ============================
+   FORMULAIRES
+============================ */
+
+input, select, textarea {
   width: 100%;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 1px solid #cbd5e1;
-  font-size: 16px;
-}
-
-.auth-form input:focus {
-  outline: none;
-  border-color: #2563eb;
-}
+}  
