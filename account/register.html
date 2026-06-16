@@ -24,7 +24,7 @@
         <input type="password" id="reg-password" required />
       </label>
       <button type="submit" class="btn primary">S’inscrire</button>
-      <p>Déjà un compte ? <a href="/src/pages/account/login.html">Se connecter</a></p>
+      <p>Déjà un compte ? <a href="/account/login.html">Se connecter</a></p>
     </form>
 
     <section class="ads-section">
@@ -52,7 +52,7 @@
       const password = document.getElementById('reg-password').value;
       const ok = await register(username, email, password);
       if (ok) {
-        window.location.href = '/src/pages/account/profile.html';
+        window.location.href = '/account/profile.html';
       } else {
         alert('Erreur lors de l’inscription.');
       }

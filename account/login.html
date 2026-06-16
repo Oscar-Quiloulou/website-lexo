@@ -21,7 +21,7 @@
         <input type="password" id="login-password" required />
       </label>
       <button type="submit" class="btn primary">Se connecter</button>
-      <p>Pas de compte ? <a href="/src/pages/account/register.html">Créer un compte</a></p>
+      <p>Pas de compte ? <a href="/account/register.html">Créer un compte</a></p>
     </form>
 
     <section class="ads-section">
@@ -48,7 +48,7 @@
       const password = document.getElementById('login-password').value;
       const ok = await login(email, password);
       if (ok) {
-        window.location.href = '/src/pages/account/profile.html';
+        window.location.href = '/account/profile.html';
       } else {
         alert('Identifiants incorrects.');
       }
