@@ -22,10 +22,10 @@ function renderNavbar() {
         ${
           user
             ? `
-          <a href="/src/pages/account/profile.html" class="nav-profile">
+          <a href="/account/profile.html" class="nav-profile">
             ${vip ? "⭐ " : ""}${user.username}
           </a>`
-            : `<a href="/src/pages/account/login.html" class="btn small">Connexion</a>`
+            : `<a href="/account/login.html" class="btn small">Connexion</a>`
         }
       </div>
     </nav>
