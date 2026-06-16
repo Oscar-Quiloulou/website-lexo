@@ -13,7 +13,7 @@ export async function askAI(prompt) {
         Authorization: `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: "llama3-8b-8192",
+        model: "llama3-8b-instant",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7
       })
