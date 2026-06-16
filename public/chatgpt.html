@@ -30,8 +30,10 @@
 
   <script src="/src/core/utils.js" type="module"></script>
   <script src="/src/core/ads.js" type="module"></script>
+  <script src="/src/core/api.js" type="module"></script>
   <script src="/src/components/navbar.js" type="module"></script>
   <script src="/src/components/footer.js" type="module"></script>
+
   <script type="module">
     import { renderAdBanner } from '/src/components/adBanner.js';
     import { chatWithAI } from '/src/core/api.js';
@@ -54,6 +56,7 @@
       e.preventDefault();
       const text = input.value.trim();
       if (!text) return;
+
       addMessage(text, 'user');
       input.value = '';
 
@@ -61,6 +64,7 @@
       const pending = messages.querySelector('.chat-message.pending');
 
       const reply = await chatWithAI(text);
+
       if (pending) pending.remove();
       addMessage(reply || 'Erreur lors de la réponse.', 'ai');
     });
