@@ -21,8 +21,8 @@
       <h2>Statut VIP & pubs</h2>
       <p id="vip-status">Chargement...</p>
       <div class="vip-actions">
-        <a href="/src/pages/ads/boost.html" class="btn secondary">Activer un boost pub</a>
-        <a href="/src/pages/ads/remove.html" class="btn primary">Supprimer les pubs (VIP)</a>
+        <a href="/ads/boost.html" class="btn secondary">Activer un boost pub</a>
+        <a href="/ads/remove.html" class="btn primary">Supprimer les pubs (VIP)</a>
       </div>
     </section>
 
@@ -53,7 +53,7 @@
 
     const user = getCurrentUser();
     if (!user) {
-      window.location.href = '/src/pages/account/login.html';
+      window.location.href = '/account/login.html';
     } else {
       info.innerHTML = `
         <p><strong>Pseudo :</strong> ${user.username}</p>
@@ -64,7 +64,7 @@
 
     logoutBtn.addEventListener('click', () => {
       logout();
-      window.location.href = '/src/pages/index.html';
+      window.location.href = '/index.html';
     });
   </script>
 </body>
