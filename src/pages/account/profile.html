@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mon profil - EduGame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/theme.css" />
+</head>
+<body>
+  <header id="navbar"></header>
+
+  <main class="page page-account">
+    <h1>Mon profil</h1>
+
+    <section id="profile-info" class="profile-info">
+      <!-- Rempli par user.js -->
+    </section>
+
+    <section class="vip-section">
+      <h2>Statut VIP & pubs</h2>
+      <p id="vip-status">Chargement...</p>
+      <div class="vip-actions">
+        <a href="/src/pages/ads/boost.html" class="btn secondary">Activer un boost pub</a>
+        <a href="/src/pages/ads/remove.html" class="btn primary">Supprimer les pubs (VIP)</a>
+      </div>
+    </section>
+
+    <button id="logout-btn" class="btn danger">Se déconnecter</button>
+
+    <section class="ads-section">
+      <div id="ad-banner-profile" class="ad-banner"></div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="/src/core/user.js" type="module"></script>
+  <script src="/src/core/vip.js" type="module"></script>
+  <script src="/src/core/ads.js" type="module"></script>
+  <script src="/src/components/navbar.js" type="module"></script>
+  <script src="/src/components/footer.js" type="module"></script>
+  <script type="module">
+    import { renderAdBanner } from '/src/components/adBanner.js';
+    import { getCurrentUser, logout } from '/src/core/user.js';
+    import { getVipStatusLabel } from '/src/core/vip.js';
+
+    renderAdBanner('ad-banner-profile');
+
+    const info = document.getElementById('profile-info');
+    const vipStatus = document.getElementById('vip-status');
+    const logoutBtn = document.getElementById('logout-btn');
+
+    const user = getCurrentUser();
+    if (!user) {
+      window.location.href = '/src/pages/account/login.html';
+    } else {
+      info.innerHTML = `
+        <p><strong>Pseudo :</strong> ${user.username}</p>
+        <p><strong>Email :</strong> ${user.email}</p>
+      `;
+      vipStatus.textContent = getVipStatusLabel(user);
+    }
+
+    logoutBtn.addEventListener('click', () => {
+      logout();
+      window.location.href = '/src/pages/index.html';
+    });
+  </script>
+</body>
+</html>

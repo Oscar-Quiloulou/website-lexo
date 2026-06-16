@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Traduction - EduGame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/theme.css" />
+</head>
+<body>
+  <header id="navbar"></header>
+
+  <main class="page page-traduction">
+    <h1>Traduction intelligente</h1>
+    <p>Entre un texte, choisis la langue, et laisse l’IA te proposer une traduction.</p>
+
+    <section class="translator">
+      <div class="translator-input">
+        <label for="source-text">Texte à traduire</label>
+        <textarea id="source-text" rows="6" placeholder="Écris ton texte ici..."></textarea>
+      </div>
+
+      <div class="translator-options">
+        <label for="source-lang">Langue source</label>
+        <select id="source-lang">
+          <option value="fr">Français</option>
+          <option value="en">Anglais</option>
+        </select>
+
+        <label for="target-lang">Langue cible</label>
+        <select id="target-lang">
+          <option value="en">Anglais</option>
+          <option value="fr">Français</option>
+        </select>
+
+        <button id="translate-btn" class="btn primary">Traduire</button>
+      </div>
+
+      <div class="translator-output">
+        <label for="translated-text">Traduction</label>
+        <textarea id="translated-text" rows="6" readonly></textarea>
+      </div>
+    </section>
+
+    <section class="ads-section">
+      <div id="ad-banner-trad" class="ad-banner"></div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="/src/core/utils.js" type="module"></script>
+  <script src="/src/core/ads.js" type="module"></script>
+  <script src="/src/components/navbar.js" type="module"></script>
+  <script src="/src/components/footer.js" type="module"></script>
+  <script type="module">
+    import { renderAdBanner } from '/src/components/adBanner.js';
+    import { translateText } from '/src/core/api.js';
+
+    renderAdBanner('ad-banner-trad');
+
+    const btn = document.getElementById('translate-btn');
+    btn.addEventListener('click', async () => {
+      const source = document.getElementById('source-text').value;
+      const from = document.getElementById('source-lang').value;
+      const to = document.getElementById('target-lang').value;
+      const out = document.getElementById('translated-text');
+
+      out.value = 'Traduction en cours...';
+      const result = await translateText(source, from, to);
+      out.value = result || 'Erreur de traduction.';
+    });
+  </script>
+</body>
+</html>

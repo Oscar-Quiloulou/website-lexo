@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Inscription - EduGame</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="/src/styles/global.css" />
+  <link rel="stylesheet" href="/src/styles/theme.css" />
+</head>
+<body>
+  <header id="navbar"></header>
+
+  <main class="page page-account">
+    <h1>Créer un compte</h1>
+
+    <form id="register-form" class="auth-form">
+      <label>Pseudo
+        <input type="text" id="reg-username" required />
+      </label>
+      <label>Email
+        <input type="email" id="reg-email" required />
+      </label>
+      <label>Mot de passe
+        <input type="password" id="reg-password" required />
+      </label>
+      <button type="submit" class="btn primary">S’inscrire</button>
+      <p>Déjà un compte ? <a href="/src/pages/account/login.html">Se connecter</a></p>
+    </form>
+
+    <section class="ads-section">
+      <div id="ad-banner-register" class="ad-banner"></div>
+    </section>
+  </main>
+
+  <footer id="footer"></footer>
+
+  <script src="/src/core/user.js" type="module"></script>
+  <script src="/src/core/ads.js" type="module"></script>
+  <script src="/src/components/navbar.js" type="module"></script>
+  <script src="/src/components/footer.js" type="module"></script>
+  <script type="module">
+    import { renderAdBanner } from '/src/components/adBanner.js';
+    import { register } from '/src/core/auth.js';
+
+    renderAdBanner('ad-banner-register');
+
+    const form = document.getElementById('register-form');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('reg-username').value;
+      const email = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const ok = await register(username, email, password);
+      if (ok) {
+        window.location.href = '/src/pages/account/profile.html';
+      } else {
+        alert('Erreur lors de l’inscription.');
+      }
+    });
+  </script>
+</body>
+</html>
