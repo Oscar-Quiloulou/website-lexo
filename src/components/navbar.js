@@ -13,9 +13,9 @@ function renderNavbar() {
       <a href="/src/pages/index.html" class="nav-logo">EduGame</a>
 
       <div class="nav-links">
-        <a href="/src/pages/traduction.html">Traduction</a>
-        <a href="/src/pages/chatgpt.html">Chat IA</a>
-        <a href="/src/pages/exercices/index.html">Exercices</a>
+        <a href="/traduction.html">Traduction</a>
+        <a href="/chatgpt.html">Chat IA</a>
+        <a href="/exercices/index.html">Exercices</a>
       </div>
 
       <div class="nav-user">
