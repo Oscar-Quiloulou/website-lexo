@@ -2,6 +2,8 @@
 import { getCurrentUser } from "../core/user.js";
 import { isVipActive, isBoostActive } from "../core/vip.js";
 
+const AADS_ID = "2444542"; // TON ID
+
 export function renderAdBanner(id) {
   const container = document.getElementById(id);
   if (!container) return;
@@ -20,11 +22,13 @@ export function renderAdBanner(id) {
   let adsHTML = "";
   for (let i = 0; i < multiplier; i++) {
     adsHTML += `
-      <iframe
-        data-aa="YOUR_AADS_ID"
-        src="//ad.a-ads.com/YOUR_AADS_ID?size=728x90"
-        style="width:728px; height:90px; border:0; padding:0; overflow:hidden; background:transparent;">
-      </iframe>
+      <div class="ad-frame">
+        <iframe
+          data-aa="${AADS_ID}"
+          src="//acceptable.a-ads.com/${AADS_ID}/?size=Adaptive"
+          style="border:0; padding:0; width:100%; height:120px; overflow:hidden; display:block; margin:auto;">
+        </iframe>
+      </div>
     `;
   }
 
