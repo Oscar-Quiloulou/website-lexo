@@ -1,0 +1,118 @@
+/* ============================
+   GLOBAL RESET
+============================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: system-ui, sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+  min-height: 100vh;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+main.page {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ============================
+   NAVBAR
+============================ */
+
+.navbar {
+  width: 100%;
+  background: white;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.nav-logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  font-weight: 600;
+  color: #334155;
+}
+
+.nav-links a:hover {
+  color: #1e293b;
+}
+
+.nav-user a {
+  font-weight: 600;
+}
+
+/* ============================
+   FOOTER
+============================ */
+
+.footer {
+  margin-top: 60px;
+  padding: 20px;
+  text-align: center;
+  background: white;
+  border-top: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.footer a {
+  color: #2563eb;
+  font-weight: 600;
+}
+
+/* ============================
+   FORMS
+============================ */
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: white;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.auth-form input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #2563eb;
+}

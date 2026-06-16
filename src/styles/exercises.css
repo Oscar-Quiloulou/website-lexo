@@ -1,0 +1,38 @@
+/* ============================
+   EXERCISES PAGE
+============================ */
+
+.page-exercises h1 {
+  margin-bottom: 10px;
+}
+
+.chapter-selector {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.chapter-selector select {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 16px;
+}
+
+.exercises-container {
+  margin-top: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.ex {
+  padding: 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.ex:last-child {
+  border-bottom: none;
+}

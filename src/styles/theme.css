@@ -1,0 +1,69 @@
+/* ============================
+   BUTTONS
+============================ */
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.btn.primary {
+  background: #3b82f6;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #2563eb;
+}
+
+.btn.secondary {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.btn.secondary:hover {
+  background: #cbd5e1;
+}
+
+.btn.link {
+  background: transparent;
+  color: #2563eb;
+  padding: 0;
+}
+
+/* ============================
+   CARDS
+============================ */
+
+.subject-card {
+  display: block;
+  padding: 20px;
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  text-align: center;
+  font-weight: 700;
+  color: #0f172a;
+  transition: 0.2s ease;
+}
+
+.subject-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0,0,0,0.08);
+}
+
+/* ============================
+   GRID
+============================ */
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
