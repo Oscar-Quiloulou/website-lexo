@@ -30,3 +30,15 @@ export async function askAI(prompt) {
     return "Erreur de connexion à l’IA.";
   }
 }
+
+export async function chatWithAI(text) {
+  return askAI(text);
+}
+
+export async function translateText(text, from, to) {
+  const prompt = `
+Traduis ce texte du ${from} vers le ${to} :
+"${text}"
+`;
+  return askAI(prompt);
+}
