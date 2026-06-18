@@ -2,61 +2,82 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>Accueil - EduGame</title>
+  <title>Exercices - EduGame</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="/src/styles/global.css" />
   <link rel="stylesheet" href="/src/styles/theme.css" />
   <link rel="stylesheet" href="/src/styles/ads.css" />
+  <link rel="stylesheet" href="/src/styles/exercices.css" />
 </head>
 <body>
   <header id="navbar"></header>
 
-  <main class="page page-home">
-    <section class="hero">
-      <h1>EduGame</h1>
-      <p>Exercices générés par IA, chapitres officiels, et un système de jeu motivant.</p>
-      <div class="hero-actions">
-        <a href="/exercices/index.html" class="btn primary">Commencer les exercices</a>
-        <a href="/chatgpt.html" class="btn secondary">Discuter avec l’IA</a>
+  <main class="page page-exercices">
+
+    <h1>Exercices</h1>
+    <p class="subtitle">Choisis ton niveau et ta matière pour commencer.</p>
+
+    <div class="exo-selector">
+
+      <div class="selector-block">
+        <h2>Niveau</h2>
+        <select id="niveau-select">
+          <option value="">Sélectionner…</option>
+          <option value="6e">6e</option>
+          <option value="5e">5e</option>
+          <option value="4e">4e</option>
+          <option value="3e">3e</option>
+        </select>
       </div>
-    </section>
 
-    <section class="home-grid">
-      <article>
-        <h2>Traduction</h2>
-        <p>Traductions intelligentes pour t’aider dans les langues.</p>
-        <a href="/traduction.html" class="btn link">Accéder</a>
-      </article>
+      <div class="selector-block">
+        <h2>Matière</h2>
+        <select id="matiere-select">
+          <option value="">Sélectionner…</option>
+          <option value="maths">Mathématiques</option>
+          <option value="francais">Français</option>
+          <option value="histoire">Histoire</option>
+          <option value="geo">Géographie</option>
+          <option value="anglais">Anglais</option>
+          <option value="svt">SVT</option>
+          <option value="physique">Physique-Chimie</option>
+        </select>
+      </div>
 
-      <article>
-        <h2>Exercices par niveau</h2>
-        <p>6e à 3e, toutes matières, basées sur le programme officiel.</p>
-        <a href="/exercices/index.html" class="btn link">Voir les niveaux</a>
-      </article>
+      <button id="start-btn" class="btn primary">Commencer</button>
 
-      <article>
-        <h2>Compte & VIP</h2>
-        <p>Suivi de ta progression, pubs réduites ou supprimées avec le mode VIP.</p>
-        <a href="/account/profile.html" class="btn link">Mon compte</a>
-      </article>
-    </section>
+    </div>
 
     <section class="ads-section">
-      <div id="ad-banner-home" class="ad-banner"></div>
+      <div id="ad-banner-exo" class="ad-banner"></div>
     </section>
+
   </main>
 
   <footer id="footer"></footer>
 
-  <script src="/src/core/utils.js" type="module"></script>
-  <script src="/src/core/user.js" type="module"></script>
-  <script src="/src/core/vip.js" type="module"></script>
-  <script src="/src/core/ads.js" type="module"></script>
   <script src="/src/components/navbar.js" type="module"></script>
   <script src="/src/components/footer.js" type="module"></script>
+  <script src="/src/core/ads.js" type="module"></script>
+
   <script type="module">
-    import { renderAdBanner } from '/src/components/adBanner.js';
-    renderAdBanner('ad-banner-home');
+    import { renderAdBanner } from "/src/components/adBanner.js";
+    renderAdBanner("ad-banner-exo");
+
+    const niveau = document.getElementById("niveau-select");
+    const matiere = document.getElementById("matiere-select");
+    const startBtn = document.getElementById("start-btn");
+
+    startBtn.addEventListener("click", () => {
+      if (!niveau.value || !matiere.value) {
+        alert("Choisis un niveau et une matière.");
+        return;
+      }
+
+      // Redirection vers la page d'exercice correspondante
+      window.location.href = `/exercices/${niveau.value}/${matiere.value}.html`;
+    });
   </script>
+
 </body>
 </html>
