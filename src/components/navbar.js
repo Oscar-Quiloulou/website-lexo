@@ -10,7 +10,7 @@ function renderNavbar() {
 
   navbar.innerHTML = `
     <nav class="navbar">
-      <a href="/src/pages/index.html" class="nav-logo">EduGame</a>
+      <a href="/index.html" class="nav-logo">EduGame</a>
 
       <div class="nav-links">
         <a href="/traduction.html">Traduction</a>
