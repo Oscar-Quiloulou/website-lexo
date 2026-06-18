@@ -12,28 +12,21 @@ export async function askAI(prompt) {
         Authorization: `Bearer ${API_KEY}`
       },
       body: JSON.stringify({
-        model: "llama3-8b-instant",   // ✔ modèle correct
+        model: "llama3-8b-instant",
         messages: [{ role: "user", content: prompt }],
         temperature: 0.7
       })
     });
 
-    const data = await res.json();
+    if (!res.ok) {
+      console.error("Erreur API:", await res.text());
+      return "Erreur IA.";
+    }
 
+    const data = await res.json();
     return data.choices?.[0]?.message?.content || "Erreur IA.";
   } catch (e) {
+    console.error(e);
     return "Erreur de connexion à l’IA.";
   }
-}
-
-export async function chatWithAI(text) {
-  return askAI(text);
-}
-
-export async function translateText(text, from, to) {
-  const prompt = `
-Traduis ce texte du ${from} vers le ${to} :
-"${text}"
-`;
-  return askAI(prompt);
 }
